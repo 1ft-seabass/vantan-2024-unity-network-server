@@ -1,0 +1,74 @@
+[
+    {
+        "id": "76b52e4557a9c43e",
+        "type": "tab",
+        "label": "フロー 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a37f6d192f33bdf3",
+        "type": "http in",
+        "z": "76b52e4557a9c43e",
+        "name": "",
+        "url": "/page/index",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "2bf9c888091c78a7",
+                "5bab9246326e860c"
+            ]
+        ]
+    },
+    {
+        "id": "8561df5db591db01",
+        "type": "http response",
+        "z": "76b52e4557a9c43e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "2bf9c888091c78a7",
+        "type": "template",
+        "z": "76b52e4557a9c43e",
+        "name": "Index の HTML ソース",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n  <head>\n    <title>Index</title>\n  </head>\n  <body>\n    <h1>Index</h1>\n  </body>\n</html>",
+        "output": "str",
+        "x": 440,
+        "y": 220,
+        "wires": [
+            [
+                "8561df5db591db01"
+            ]
+        ]
+    },
+    {
+        "id": "5bab9246326e860c",
+        "type": "debug",
+        "z": "76b52e4557a9c43e",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 160,
+        "wires": []
+    }
+]
