@@ -1,0 +1,84 @@
+[
+    {
+        "id": "a801f28726acd639",
+        "type": "tab",
+        "label": "フロー 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f9fa5fc56b17555d",
+        "type": "comment",
+        "z": "a801f28726acd639",
+        "name": "JSON 返答",
+        "info": "",
+        "x": 360,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "67181caa6ee1d369",
+        "type": "http in",
+        "z": "a801f28726acd639",
+        "name": "",
+        "url": "/api/get/json",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 380,
+        "y": 380,
+        "wires": [
+            [
+                "a2f069e2245abd2b",
+                "ae01531f503c9ec8"
+            ]
+        ]
+    },
+    {
+        "id": "c63cdfcef8371678",
+        "type": "http response",
+        "z": "a801f28726acd639",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 810,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "a2f069e2245abd2b",
+        "type": "debug",
+        "z": "a801f28726acd639",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ae01531f503c9ec8",
+        "type": "template",
+        "z": "a801f28726acd639",
+        "name": "JSON データ",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"name\": \"Box1\",\n    \"name2\": \"Box2\"\n}",
+        "output": "str",
+        "x": 590,
+        "y": 380,
+        "wires": [
+            [
+                "c63cdfcef8371678"
+            ]
+        ]
+    }
+]

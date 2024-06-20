@@ -1,0 +1,174 @@
+[
+    {
+        "id": "f83dcebbba13969a",
+        "type": "tab",
+        "label": "フロー 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a45c815b3a9bfdfb",
+        "type": "comment",
+        "z": "f83dcebbba13969a",
+        "name": "タイトル返答",
+        "info": "",
+        "x": 150,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ac1d91178f3c3b2f",
+        "type": "http in",
+        "z": "f83dcebbba13969a",
+        "name": "",
+        "url": "/api/post/title",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "a56101caf91ea708",
+                "e4517cdf904e57bf"
+            ]
+        ]
+    },
+    {
+        "id": "a56101caf91ea708",
+        "type": "debug",
+        "z": "f83dcebbba13969a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e4517cdf904e57bf",
+        "type": "change",
+        "z": "f83dcebbba13969a",
+        "name": "返答内容",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "こんにちは！ようこそ！",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "16a7a116c5ad9c6b"
+            ]
+        ]
+    },
+    {
+        "id": "16a7a116c5ad9c6b",
+        "type": "http response",
+        "z": "f83dcebbba13969a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "68058c95a5160b73",
+        "type": "comment",
+        "z": "f83dcebbba13969a",
+        "name": "ポイント加算設定返答！",
+        "info": "",
+        "x": 190,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "fde97756d8558c35",
+        "type": "http in",
+        "z": "f83dcebbba13969a",
+        "name": "",
+        "url": "/api/post/add_point",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 360,
+        "wires": [
+            [
+                "3be2de75338e65fe",
+                "7f9fe9e93b5023bb"
+            ]
+        ]
+    },
+    {
+        "id": "3be2de75338e65fe",
+        "type": "debug",
+        "z": "f83dcebbba13969a",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "7f9fe9e93b5023bb",
+        "type": "change",
+        "z": "f83dcebbba13969a",
+        "name": "ポイント数",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 360,
+        "wires": [
+            [
+                "a9f5100239fec86b"
+            ]
+        ]
+    },
+    {
+        "id": "a9f5100239fec86b",
+        "type": "http response",
+        "z": "f83dcebbba13969a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 360,
+        "wires": []
+    }
+]

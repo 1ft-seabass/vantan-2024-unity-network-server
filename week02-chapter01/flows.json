@@ -1,0 +1,174 @@
+[
+    {
+        "id": "cabb6b5400b478d6",
+        "type": "tab",
+        "label": "フロー 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1ee770c1c58ea4db",
+        "type": "comment",
+        "z": "cabb6b5400b478d6",
+        "name": "GET リクエスト部分",
+        "info": "",
+        "x": 290,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "eddd144819ca2c6c",
+        "type": "http in",
+        "z": "cabb6b5400b478d6",
+        "name": "",
+        "url": "/api/get/sample",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "4c73b40b4713ef8f",
+                "8fb127e2eae998ca"
+            ]
+        ]
+    },
+    {
+        "id": "4c73b40b4713ef8f",
+        "type": "debug",
+        "z": "cabb6b5400b478d6",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "1123011095e4de42",
+        "type": "http response",
+        "z": "cabb6b5400b478d6",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a63fc119861dc5a3",
+        "type": "comment",
+        "z": "cabb6b5400b478d6",
+        "name": "POST リクエスト部分",
+        "info": "",
+        "x": 300,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "ad1b4c4851a563b6",
+        "type": "http in",
+        "z": "cabb6b5400b478d6",
+        "name": "",
+        "url": "/api/post/sample",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "7e8260611fde0806",
+                "ef2e5a0597c2e2e7"
+            ]
+        ]
+    },
+    {
+        "id": "7e8260611fde0806",
+        "type": "debug",
+        "z": "cabb6b5400b478d6",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "42dfbae969daa0d7",
+        "type": "http response",
+        "z": "cabb6b5400b478d6",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "8fb127e2eae998ca",
+        "type": "change",
+        "z": "cabb6b5400b478d6",
+        "name": "GET OK!",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "GET OK!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 180,
+        "wires": [
+            [
+                "1123011095e4de42"
+            ]
+        ]
+    },
+    {
+        "id": "ef2e5a0597c2e2e7",
+        "type": "change",
+        "z": "cabb6b5400b478d6",
+        "name": "POST OK!",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "POST OK!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 420,
+        "wires": [
+            [
+                "42dfbae969daa0d7"
+            ]
+        ]
+    }
+]
