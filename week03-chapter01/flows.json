@@ -1,0 +1,102 @@
+[
+    {
+        "id": "3a941c4f045a3ef1",
+        "type": "tab",
+        "label": "フロー 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "be2b9843cb36c0b4",
+        "type": "http in",
+        "z": "3a941c4f045a3ef1",
+        "name": "",
+        "url": "/api/post/result",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "b0af2946efbdaaa5",
+                "c1e4ea8934b309c1"
+            ]
+        ]
+    },
+    {
+        "id": "b0af2946efbdaaa5",
+        "type": "debug",
+        "z": "3a941c4f045a3ef1",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c1e4ea8934b309c1",
+        "type": "change",
+        "z": "3a941c4f045a3ef1",
+        "name": "{\"result\":\"OK\"}",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"result\":\"OK\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 220,
+        "wires": [
+            [
+                "4e8f30157b588a49"
+            ]
+        ]
+    },
+    {
+        "id": "4e8f30157b588a49",
+        "type": "http response",
+        "z": "3a941c4f045a3ef1",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "29d8222f0ccedd90",
+        "type": "comment",
+        "z": "3a941c4f045a3ef1",
+        "name": "ポイント受信",
+        "info": "",
+        "x": 290,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "620b38211001ab52",
+        "type": "comment",
+        "z": "3a941c4f045a3ef1",
+        "name": "結果表示",
+        "info": "",
+        "x": 560,
+        "y": 280,
+        "wires": []
+    }
+]
