@@ -21,7 +21,7 @@
         "wires": [
             [
                 "a8f73c93a6e973a0",
-                "0eefcf7a48362c5b"
+                "dd0fa922634ec662"
             ]
         ]
     },
@@ -32,7 +32,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 890,
+        "x": 1090,
         "y": 200,
         "wires": []
     },
@@ -58,14 +58,15 @@
         "z": "f3330a9b801d468a",
         "name": "",
         "url": "/api/post/init",
-        "method": "get",
+        "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 360,
-        "y": 320,
+        "x": 370,
+        "y": 380,
         "wires": [
             [
-                "d406d628c403a8f4"
+                "d406d628c403a8f4",
+                "84619f79bbd40484"
             ]
         ]
     },
@@ -77,7 +78,7 @@
         "statusCode": "",
         "headers": {},
         "x": 1170,
-        "y": 520,
+        "y": 580,
         "wires": []
     },
     {
@@ -100,7 +101,7 @@
         "to": "",
         "reg": false,
         "x": 410,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "1a69a51ced03d210"
@@ -115,16 +116,6 @@
         "info": "",
         "x": 430,
         "y": 280,
-        "wires": []
-    },
-    {
-        "id": "4b3aab40c66c56bb",
-        "type": "comment",
-        "z": "f3330a9b801d468a",
-        "name": "",
-        "info": "app.post('/api/post/init', (req, res) => {\n  console.log('/api/post/init 受信');\n  // 受信したデータ\n  console.log(req.body);\n  // あいさつ文の値\n  let title = \"\";\n  // 受信した name 値の有無で文言が変わる\n  if(req.body.name){\n    title = `こんにちは！${req.body.name}さん、ようこそ！`;\n  } else {\n    title = \"こんにちは！ようこそ！\";\n  }\n  // 送るデータを JavaScript のオブジェクトで作る\n  const responseData = {\n    \"result\":\"OK\",\n    \"title\":title,  // あいさつ文\n    \"add_point\":1,  // 加算ポイント\n    \"recordPoint\":recordPoint // 記録している現在のポイント\n  };\n  // res.json はオブジェクトを JSON 形式で返答します\n  res.json(responseData)\n});",
-        "x": 320,
-        "y": 620,
         "wires": []
     },
     {
@@ -170,7 +161,7 @@
         "id": "bbd6c5be962f9c8a",
         "type": "change",
         "z": "f3330a9b801d468a",
-        "name": "recordPoint 初期化",
+        "name": "flow.recordPoint 初期化",
         "rules": [
             {
                 "t": "set",
@@ -210,7 +201,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 650,
+        "x": 870,
         "y": 200,
         "wires": [
             [
@@ -238,7 +229,7 @@
         "to": "",
         "reg": false,
         "x": 660,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "4d9b13d32bfa567e"
@@ -249,10 +240,10 @@
         "id": "95191699e3e847d6",
         "type": "comment",
         "z": "f3330a9b801d468a",
-        "name": "受信した name 値の有無で文言が変わる",
+        "name": "受信した name 値の有無で title 文言が変わる",
         "info": "",
-        "x": 400,
-        "y": 560,
+        "x": 390,
+        "y": 620,
         "wires": []
     },
     {
@@ -274,7 +265,7 @@
         "repair": false,
         "outputs": 2,
         "x": 440,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "8b2d044257e8ec87"
@@ -304,7 +295,7 @@
         "to": "",
         "reg": false,
         "x": 690,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "16bbc848a51829ec"
@@ -319,7 +310,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "payload.name",
+                "p": "payload.title",
                 "pt": "msg",
                 "to": "こんにちは！ようこそ！",
                 "tot": "str"
@@ -331,7 +322,7 @@
         "to": "",
         "reg": false,
         "x": 790,
-        "y": 560,
+        "y": 620,
         "wires": [
             [
                 "2761d4cd27e9b0aa"
@@ -343,17 +334,60 @@
         "type": "template",
         "z": "f3330a9b801d468a",
         "name": "こんにちは！～～ さん、ようこそ！",
-        "field": "payload",
+        "field": "payload.title",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
         "template": "こんにちは！ {{currentPayload.name}} さん、ようこそ！",
         "output": "str",
         "x": 830,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "2761d4cd27e9b0aa"
+            ]
+        ]
+    },
+    {
+        "id": "84619f79bbd40484",
+        "type": "debug",
+        "z": "f3330a9b801d468a",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "dd0fa922634ec662",
+        "type": "change",
+        "z": "f3330a9b801d468a",
+        "name": "result 値を追加",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.result",
+                "pt": "msg",
+                "to": "OK",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 200,
+        "wires": [
+            [
+                "0eefcf7a48362c5b"
             ]
         ]
     }
