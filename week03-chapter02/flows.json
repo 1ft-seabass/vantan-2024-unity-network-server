@@ -192,7 +192,7 @@
                 "t": "set",
                 "p": "recordPoint",
                 "pt": "flow",
-                "to": "point",
+                "to": "payload.point",
                 "tot": "msg"
             }
         ],
