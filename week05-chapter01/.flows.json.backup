@@ -1,0 +1,974 @@
+[
+    {
+        "id": "9e1c4a6f455c6c39",
+        "type": "tab",
+        "label": "ベース",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "75fd81068fb628c1",
+        "type": "tab",
+        "label": "json-server 自動起動",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2e7004e752046f31",
+        "type": "tab",
+        "label": "お試し",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4ea6cd1814d830c3",
+        "type": "junction",
+        "z": "9e1c4a6f455c6c39",
+        "x": 260,
+        "y": 280,
+        "wires": [
+            [
+                "628bdb438d5e6ba2"
+            ]
+        ]
+    },
+    {
+        "id": "26c5f18260a6768d",
+        "type": "http in",
+        "z": "9e1c4a6f455c6c39",
+        "name": "",
+        "url": "/*",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "9785cb57685df83f"
+            ]
+        ]
+    },
+    {
+        "id": "b7756b6e32b43b3a",
+        "type": "http response",
+        "z": "9e1c4a6f455c6c39",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9785cb57685df83f",
+        "type": "change",
+        "z": "9e1c4a6f455c6c39",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://localhost:3000\" & req.url",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 120,
+        "wires": [
+            [
+                "7019fabdd96a7b1d"
+            ]
+        ]
+    },
+    {
+        "id": "7019fabdd96a7b1d",
+        "type": "http request",
+        "z": "9e1c4a6f455c6c39",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "query",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 590,
+        "y": 120,
+        "wires": [
+            [
+                "b7756b6e32b43b3a"
+            ]
+        ]
+    },
+    {
+        "id": "677ea09b14386379",
+        "type": "http in",
+        "z": "9e1c4a6f455c6c39",
+        "name": "",
+        "url": "/*",
+        "method": "patch",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 360,
+        "wires": [
+            [
+                "4ea6cd1814d830c3"
+            ]
+        ]
+    },
+    {
+        "id": "3799d2ef423d3170",
+        "type": "http response",
+        "z": "9e1c4a6f455c6c39",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "628bdb438d5e6ba2",
+        "type": "change",
+        "z": "9e1c4a6f455c6c39",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://localhost:3000\" & req.url",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "method",
+                "pt": "msg",
+                "to": "req.method",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "req",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 280,
+        "wires": [
+            [
+                "2475253eeedfdf69"
+            ]
+        ]
+    },
+    {
+        "id": "2475253eeedfdf69",
+        "type": "http request",
+        "z": "9e1c4a6f455c6c39",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "query",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 590,
+        "y": 280,
+        "wires": [
+            [
+                "3799d2ef423d3170"
+            ]
+        ]
+    },
+    {
+        "id": "64ccfc0fa4be905c",
+        "type": "http in",
+        "z": "9e1c4a6f455c6c39",
+        "name": "",
+        "url": "/*",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "4ea6cd1814d830c3"
+            ]
+        ]
+    },
+    {
+        "id": "74796172a74bbe02",
+        "type": "http in",
+        "z": "9e1c4a6f455c6c39",
+        "name": "",
+        "url": "/*",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "4ea6cd1814d830c3"
+            ]
+        ]
+    },
+    {
+        "id": "9d458ae643d1c689",
+        "type": "http in",
+        "z": "9e1c4a6f455c6c39",
+        "name": "",
+        "url": "/*",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 300,
+        "wires": [
+            [
+                "4ea6cd1814d830c3"
+            ]
+        ]
+    },
+    {
+        "id": "9738ba48cf75f077",
+        "type": "comment",
+        "z": "9e1c4a6f455c6c39",
+        "name": "json-server へデータをそのまま通す",
+        "info": "",
+        "x": 180,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "4a1103f647cf6592",
+        "type": "exec",
+        "z": "75fd81068fb628c1",
+        "command": "npx json-server --watch ./week05-chapter01/db/db.json -p 3000",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "json-server 起動",
+        "x": 520,
+        "y": 80,
+        "wires": [
+            [
+                "0c1e64863f47556a"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "75a0af79a16697ad",
+        "type": "inject",
+        "z": "75fd81068fb628c1",
+        "name": "起動時",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "f327a424b197cf8a"
+            ]
+        ]
+    },
+    {
+        "id": "4f9dc5406e411367",
+        "type": "debug",
+        "z": "75fd81068fb628c1",
+        "name": "debug 14",
+        "active": false,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 500,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "f327a424b197cf8a",
+        "type": "exec",
+        "z": "75fd81068fb628c1",
+        "command": "kill -9 `ps a | grep json-server | grep -v grep | awk '{print $1}'`",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "強制終了",
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "4a1103f647cf6592"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e22db41060328161",
+        "type": "exec",
+        "z": "75fd81068fb628c1",
+        "command": "ps a | grep json-server | grep -v grep | awk '{print $1}'",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "json-server ps",
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "4f9dc5406e411367"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0c1e64863f47556a",
+        "type": "trigger",
+        "z": "75fd81068fb628c1",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 140,
+        "y": 260,
+        "wires": [
+            [
+                "e22db41060328161"
+            ]
+        ]
+    },
+    {
+        "id": "bbd3f8882174c9dc",
+        "type": "comment",
+        "z": "75fd81068fb628c1",
+        "name": "json-server 自動起動",
+        "info": "",
+        "x": 150,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "1d1cd96ab3671889",
+        "type": "inject",
+        "z": "2e7004e752046f31",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 140,
+        "wires": [
+            [
+                "80a988ddd5f1526d"
+            ]
+        ]
+    },
+    {
+        "id": "6a2feddfb34d26f2",
+        "type": "comment",
+        "z": "2e7004e752046f31",
+        "name": "GET データ取得",
+        "info": "",
+        "x": 200,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "80a988ddd5f1526d",
+        "type": "change",
+        "z": "2e7004e752046f31",
+        "name": "API 設定",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "http://localhost:3000/sample01",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 140,
+        "wires": [
+            [
+                "70cfe1364be1ce21"
+            ]
+        ]
+    },
+    {
+        "id": "70cfe1364be1ce21",
+        "type": "http request",
+        "z": "2e7004e752046f31",
+        "name": "GET",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 670,
+        "y": 140,
+        "wires": [
+            [
+                "dbb37a81c5a99384"
+            ]
+        ]
+    },
+    {
+        "id": "dbb37a81c5a99384",
+        "type": "debug",
+        "z": "2e7004e752046f31",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "442f34a388b50581",
+        "type": "comment",
+        "z": "2e7004e752046f31",
+        "name": "POST データ追加",
+        "info": "",
+        "x": 210,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "1245d3b6f5dae2d7",
+        "type": "inject",
+        "z": "2e7004e752046f31",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 260,
+        "wires": [
+            [
+                "e7aceac8663b1a32"
+            ]
+        ]
+    },
+    {
+        "id": "e7aceac8663b1a32",
+        "type": "change",
+        "z": "2e7004e752046f31",
+        "name": "API 設定",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "http://localhost:3000/sample01",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"data\":\"データ2\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 260,
+        "wires": [
+            [
+                "a162bb6a8a772594"
+            ]
+        ]
+    },
+    {
+        "id": "a162bb6a8a772594",
+        "type": "http request",
+        "z": "2e7004e752046f31",
+        "name": "POST",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 670,
+        "y": 260,
+        "wires": [
+            [
+                "67e90b8ca3b4dabf"
+            ]
+        ]
+    },
+    {
+        "id": "67e90b8ca3b4dabf",
+        "type": "debug",
+        "z": "2e7004e752046f31",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5af8f5a589f2f472",
+        "type": "comment",
+        "z": "2e7004e752046f31",
+        "name": "DELETE データ削除",
+        "info": "",
+        "x": 210,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b6fbdbf94cf2435d",
+        "type": "inject",
+        "z": "2e7004e752046f31",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 380,
+        "wires": [
+            [
+                "58f1c33c84eb3642"
+            ]
+        ]
+    },
+    {
+        "id": "58f1c33c84eb3642",
+        "type": "change",
+        "z": "2e7004e752046f31",
+        "name": "API 設定",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "http://localhost:3000/sample01/1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 380,
+        "wires": [
+            [
+                "109ed4097a4762d1"
+            ]
+        ]
+    },
+    {
+        "id": "109ed4097a4762d1",
+        "type": "http request",
+        "z": "2e7004e752046f31",
+        "name": "DELETE",
+        "method": "DELETE",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 680,
+        "y": 380,
+        "wires": [
+            [
+                "b5c41b4940ac1cfb"
+            ]
+        ]
+    },
+    {
+        "id": "b5c41b4940ac1cfb",
+        "type": "debug",
+        "z": "2e7004e752046f31",
+        "name": "debug 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "3cd3f253bc4c7818",
+        "type": "comment",
+        "z": "2e7004e752046f31",
+        "name": "PATCH データ部分更新",
+        "info": "",
+        "x": 220,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "3823f4ac340d09f1",
+        "type": "inject",
+        "z": "2e7004e752046f31",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 600,
+        "wires": [
+            [
+                "3e8096594fa8db8d"
+            ]
+        ]
+    },
+    {
+        "id": "3e8096594fa8db8d",
+        "type": "change",
+        "z": "2e7004e752046f31",
+        "name": "API 設定",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "http://localhost:3000/sample01/1",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "method",
+                "pt": "msg",
+                "to": "PATCH",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"data\":\"PATCH!\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 600,
+        "wires": [
+            [
+                "28ebc097fb14fab1"
+            ]
+        ]
+    },
+    {
+        "id": "28ebc097fb14fab1",
+        "type": "http request",
+        "z": "2e7004e752046f31",
+        "name": "PATCH",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 680,
+        "y": 600,
+        "wires": [
+            [
+                "546a817c5dc10ff9"
+            ]
+        ]
+    },
+    {
+        "id": "546a817c5dc10ff9",
+        "type": "debug",
+        "z": "2e7004e752046f31",
+        "name": "debug 18",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "0908063896928774",
+        "type": "comment",
+        "z": "2e7004e752046f31",
+        "name": "PUT データ全体更新",
+        "info": "",
+        "x": 210,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "3d992bc0106f6b20",
+        "type": "inject",
+        "z": "2e7004e752046f31",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 500,
+        "wires": [
+            [
+                "0a849bbb9991fb42"
+            ]
+        ]
+    },
+    {
+        "id": "0a849bbb9991fb42",
+        "type": "change",
+        "z": "2e7004e752046f31",
+        "name": "API 設定",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "http://localhost:3000/sample01/1",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"data\":\"PUT!\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 500,
+        "wires": [
+            [
+                "3069e7bd37b4218e"
+            ]
+        ]
+    },
+    {
+        "id": "3069e7bd37b4218e",
+        "type": "http request",
+        "z": "2e7004e752046f31",
+        "name": "PUT",
+        "method": "PUT",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 670,
+        "y": 500,
+        "wires": [
+            [
+                "1bf71f619fba2574"
+            ]
+        ]
+    },
+    {
+        "id": "1bf71f619fba2574",
+        "type": "debug",
+        "z": "2e7004e752046f31",
+        "name": "debug 19",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 500,
+        "wires": []
+    }
+]
