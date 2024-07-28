@@ -59,7 +59,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 770,
+        "x": 1030,
         "y": 120,
         "wires": []
     },
@@ -110,7 +110,7 @@
         "y": 120,
         "wires": [
             [
-                "b7756b6e32b43b3a"
+                "b14824ebdac62101"
             ]
         ]
     },
@@ -267,10 +267,51 @@
         "wires": []
     },
     {
+        "id": "b14824ebdac62101",
+        "type": "change",
+        "z": "9e1c4a6f455c6c39",
+        "name": "Unity 用データ加工",
+        "rules": [
+            {
+                "t": "set",
+                "p": "JSONServerData",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.data",
+                "pt": "msg",
+                "to": "JSONServerData",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 830,
+        "y": 120,
+        "wires": [
+            [
+                "b7756b6e32b43b3a"
+            ]
+        ]
+    },
+    {
         "id": "4a1103f647cf6592",
         "type": "exec",
         "z": "75fd81068fb628c1",
-        "command": "npx json-server --watch ./week05-chapter01/db/db.json -p 3000",
+        "command": "npx json-server --watch ./week05-chapter02/db/db.json -p 3000",
         "addpay": "",
         "append": "",
         "useSpawn": "true",
