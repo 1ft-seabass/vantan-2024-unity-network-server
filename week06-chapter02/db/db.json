@@ -1,0 +1,24 @@
+{
+  "pointlist": [
+    {
+      "id": "33d3",
+      "name": "name1",
+      "point": 1
+    },
+    {
+      "id": "230d",
+      "name": "name2",
+      "point": 2
+    },
+    {
+      "id": "93b3",
+      "name": "name3",
+      "point": 3
+    },
+    {
+      "id": "f15b",
+      "point": 0,
+      "name": "Seigo"
+    }
+  ]
+}
