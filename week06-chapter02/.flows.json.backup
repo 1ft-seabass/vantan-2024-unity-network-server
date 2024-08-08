@@ -86,7 +86,8 @@
         "y": 120,
         "wires": [
             [
-                "7019fabdd96a7b1d"
+                "7019fabdd96a7b1d",
+                "366d118a4a80c8c3"
             ]
         ]
     },
@@ -308,10 +309,27 @@
         ]
     },
     {
+        "id": "366d118a4a80c8c3",
+        "type": "debug",
+        "z": "9e1c4a6f455c6c39",
+        "name": "debug 20",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "req.url",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 60,
+        "wires": []
+    },
+    {
         "id": "4a1103f647cf6592",
         "type": "exec",
         "z": "75fd81068fb628c1",
-        "command": "npx json-server --watch ./week06-chapter01/db/db.json -p 3000",
+        "command": "npx json-server --watch ./week06-chapter02/db/db.json -p 3000",
         "addpay": "",
         "append": "",
         "useSpawn": "true",
