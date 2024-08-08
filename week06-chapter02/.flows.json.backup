@@ -98,7 +98,7 @@
         "name": "",
         "method": "GET",
         "ret": "obj",
-        "paytoqs": "query",
+        "paytoqs": "ignore",
         "url": "",
         "tls": "",
         "persist": false,
