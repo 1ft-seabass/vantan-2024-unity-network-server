@@ -1,3 +1,3 @@
 # vantan-2024-unity-network-server
 
-バージョン 20240802
+バージョン 20240808
